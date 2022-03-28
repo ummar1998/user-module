@@ -1,0 +1,161 @@
+<div class="login-wrapper">
+  <mat-card class="box">
+    <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+      <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- title -->
+        <mat-radio-group
+          required
+          name="title"
+          class="example-full-width"
+          formControlName="title"
+        >
+          <mat-radio-button
+            [value]="title"
+            *ngFor="let title of Titles"
+            style="padding: 0.5rem"
+            >{{ title }}</mat-radio-button
+          >
+          <mat-error
+            *ngIf="
+              !signUpForm.controls.title.touched &&
+              !signUpForm.controls.title.dirty
+            "
+            >Kindly select the title</mat-error
+          >
+        </mat-radio-group>
+
+        <!-- firstname  -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" />
+          <mat-error *ngIf="signUpForm.controls.firstName.touched">
+            First name cannot be empty</mat-error
+          >
+          <mat-error *ngIf="signUpForm.controls.firstName.errors?.minlength">
+            Please don't use abbreviations</mat-error
+          >
+        </mat-form-field>
+        <!-- last name -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+          <mat-error *ngIf="!signUpForm.controls.lastName.untouched">
+            Last name cannot be empty</mat-error
+          >
+          <mat-error *ngIf="signUpForm.controls.lastName.errors?.minlength">
+            Please don't use abbreviations</mat-error
+          >
+        </mat-form-field>
+        <!-- email -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" />
+          <mat-error
+            *ngIf="
+              signUpForm.controls.email.hasError &&
+              !signUpForm.controls.email.hasError('required')
+            "
+          >
+            Please enter your email address e.g. exampleusername@xyzdomain.com
+          </mat-error>
+          <mat-error *ngIf="signUpForm.controls.email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- dob -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="dob"
+            formControlName="dob"
+            [max]="maxDate"
+          />
+          <mat-datepicker-toggle matSuffix [for]="dob"> </mat-datepicker-toggle>
+          <mat-datepicker #dob></mat-datepicker>
+          <mat-error *ngIf="!signUpForm.controls.dob.untouched"
+            >Please enter a valid date</mat-error
+          >
+        </mat-form-field>
+        <!-- mobile -->
+
+        <mat-form-field
+          class="example-full-width"
+          floatLabel="always"
+          appearance="fill"
+        >
+          <mat-label>Mobile</mat-label>
+          <input
+            matInput
+            ng2TelInput
+            maxlength="10"
+            formControlName="mobile"
+            [ng2TelInputOptions]="{ initialCountry: 'in' }"
+          />
+
+          <mat-error *ngIf="!signUpForm.controls.mobile.untouched"
+            >Enter a 10 digit mobile number
+          </mat-error>
+        </mat-form-field>
+
+        <!-- password -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="
+              (registerFormControl.password.touched || submitted) &&
+              registerFormControl.password.errors?.required
+            "
+          >
+            Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="
+              registerFormControl.password.touched &&
+              registerFormControl.password.errors?.invalidPassword
+            "
+          >
+            >Password should have minimum 8 characters, at least 1 uppercase
+            letter, 1 lowercase letter and 1 number
+          </mat-error>
+        </mat-form-field>
+        <!-- confirm password -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input type="password" matInput formControlName="confirmPassword" />
+
+          <mat-error
+            *ngIf="
+              (registerFormControl.confirmPassword.touched || submitted) &&
+              registerFormControl.confirmPassword.errors?.required
+            "
+          >
+            Confirm Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="
+              registerFormControl.confirmPassword.touched &&
+              registerFormControl.confirmPassword.errors?.passwordMismatch
+            "
+          >
+            Passwords doesnot match
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <!-- register button  -->
+      <button
+        mat-stroked-button
+        color="accent"
+        class="btn-block"
+        [disabled]="!signUpForm.valid"
+      >
+        Register
+      </button>
+    </form>
+  </mat-card>
+</div>

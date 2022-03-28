@@ -1,0 +1,68 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "signUpUsers": [
+    {
+      "title": "Mr",
+      "firstName": "Umar",
+      "lastName": "farw",
+      "email": "test@gmail.com",
+      "dob": "2022-03-15T18:30:00.000Z",
+      "mobile": "8861122500",
+      "password": "test",
+      "id": 1
+    },
+    {
+      "title": "Mr",
+      "firstName": "Ummar",
+      "lastName": "Farooq",
+      "email": "test@gmail.com",
+      "dob": "2022-03-23T18:30:00.000Z",
+      "mobile": "8861122500",
+      "password": "Test1234",
+      "confirmPassword": "Test1234",
+      "id": 2
+    },
+    {
+      "title": "Mr",
+      "firstName": "Um",
+      "lastName": "fa",
+      "email": "fa@gmail.com",
+      "dob": "2022-03-30T18:30:00.000Z",
+      "mobile": "8861122500",
+      "password": "Test1234",
+      "confirmPassword": "Test1234",
+      "id": 3
+    },
+    {
+      "title": "Mr",
+      "firstName": "Ummar",
+      "lastName": "Farooq",
+      "email": "umar@gmail.com",
+      "dob": "2022-03-15T18:30:00.000Z",
+      "mobile": "8861122500",
+      "password": "Farooq123",
+      "confirmPassword": "Farooq123",
+      "id": 4
+    },
+    {
+      "title": "Mr",
+      "firstName": "sam",
+      "lastName": "kumar",
+      "email": "sam@gmail.com",
+      "dob": "2022-03-14T18:30:00.000Z",
+      "mobile": "8861122500",
+      "password": "Test1234",
+      "confirmPassword": "Test1234",
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
